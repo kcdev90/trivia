@@ -2,7 +2,7 @@
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
-import { Platform, StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 
 import AppNavigator from './src/navigation/AppNavigator';
 
@@ -24,7 +24,6 @@ export default function App(props) {
   } else {
     return (
       <View style={{flex: 1, backgroundColor: 'white'}}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <AppNavigator />
       </View>
     );
@@ -38,8 +37,6 @@ async function loadResourcesAsync() {
 }
 
 function handleLoadingError(error) {
-  // In this case, you might want to report the error to your error reporting
-  // service, for example Sentry
   console.warn(error);
 }
 
